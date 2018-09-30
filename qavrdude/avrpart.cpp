@@ -490,10 +490,10 @@ QString AvrPart::findDeviceWithSignature(quint8 s0, quint8 s1, quint8 s2)
 QString AvrPart::findDeviceWithSignatureSqlite(quint8 s0, quint8 s1, quint8 s2)
 {
     QSqlQuery partQuery(db);
-    partQuery.prepare("SELECT name FROM devicse where S0 = :s0 AND S1 = :s1 AND S2 = :s2");
-    partQuery.bindValue("S0", s0);
-    partQuery.bindValue("S1", s1);
-    partQuery.bindValue("S2", s2);
+    partQuery.prepare("SELECT name FROM devices WHERE S0 = :s0 AND S1 = :s1 AND S2 = :s2");
+    partQuery.bindValue(":s0", s0);
+    partQuery.bindValue(":s1", s1);
+    partQuery.bindValue(":s2", s2);
 
     if (partQuery.exec()) {
         partQuery.next();
